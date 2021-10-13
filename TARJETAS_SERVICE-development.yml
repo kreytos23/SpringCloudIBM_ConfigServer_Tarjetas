@@ -10,12 +10,6 @@ eureka:
 
 
 spring:
-    h2:
-        console:
-            enabled: 'true'
-    datasource:
-        url: 'jdbc:h2:mem:testdb;DATABASE_TO_UPPER=false'
-        data: 'classpath:schema.sql , classpath:data.sql'
     jpa:
         hibernate:
             naming:
