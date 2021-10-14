@@ -7,9 +7,33 @@ eureka:
     instance:
         hostname: localhost
 
+spring:
+    h2:
+        console:
+            enabled: 'true'
+        datasource:
+            url: 'jdbc:h2:mem:testdb;DATABASE_TO_UPPER=false'
+            #data: 'classpath:schema.sql , classpath:data.sql'
+            username: sa
+            password:
+    jpa:
+        defer-datasource-initialization: true
+        hibernate:
+            naming:
+                physical-strategy: 'org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl'
+                implicit-strategy: 'org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl'
+            ddl-auto: 'update'
+
+
 feign:
     client:
         config:
             default:
                 connectTimeout: '5000'
                 readTimeout: '5000'
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: '*'
